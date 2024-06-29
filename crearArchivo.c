@@ -46,5 +46,5 @@ int createFile(const char* nombre, const char* ruta, const char* contenido){
 	}
     }
     fclose(archivo);
-
+    return 0;
 }
