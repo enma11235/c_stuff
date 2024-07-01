@@ -31,5 +31,5 @@ void createFile(const char* nombre, const char* ruta, const char* contenido){
     fwrite(contenido, sizeof(char), sizeof(contenido), archivo);
     //cerramos el archivo
     fclose(archivo);
-
+    return 0;
 }
