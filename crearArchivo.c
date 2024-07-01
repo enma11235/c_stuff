@@ -1,25 +1,13 @@
 #include <stdio.h>
 #include <string.h>
 
-int createFile(const char* nombre, const char* ruta, const char* contenido){
+void createFile(const char* nombre, const char* ruta, const char* contenido){
 
-    //concatenamos el nombre con la ruta
-    //nota: esto lo pudimos haber hecho con sizeof()
     //paso 1: obtenemos el largo de nombre
-    int pos = 0;
-    int largoNombre = 0;
-    while(nombre[pos] != '\0') {
-	largoNombre++;
-	pos++;
-    }
+    int largoNombre = strlen(nombre);
     //paso 2: obtenemos el largo de ruta
-    pos = 0;
-    int largoRuta = 0;
-    while(ruta[pos] != '\0') {
-	largoRuta++;
-	pos++;
-    }
-    //creamos un nuevo string
+    int largoRuta = strlen(ruta);
+    //creamos un nuevo string de tamaño 'largo'
     int largo = largoRuta + largoNombre + 1;
     char path[largo];
     
@@ -35,16 +23,13 @@ int createFile(const char* nombre, const char* ruta, const char* contenido){
     }
     path[pos] = '\0';
 
-
+    //creamos un descriptor de archivo
     FILE* archivo;
-    archivo = fopen(path, "w"); // Abre el archivo en modo escritura
-    
-    if(contenido != NULL) {
-	int elementosEscritos = fwrite(contenido, sizeof(char), sizeof(contenido), archivo);
-	if (elementosEscritos < sizeof(contenido)){
-	    return 1;
-	}
-    }
+    //abrimos un nuevo archivo en la ruta path (modo w)
+    archivo = fopen(path, "w");{
+    //escribimos el archivo
+    fwrite(contenido, sizeof(char), sizeof(contenido), archivo);
+    //cerramos el archivo
     fclose(archivo);
 
 }
