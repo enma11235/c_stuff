@@ -1,4 +1,4 @@
-void readString() {
+const char* readString() {
     //creamos una estructura de lista
     struct nodo {
 	char c;
@@ -8,28 +8,41 @@ void readString() {
     struct lista {
 	struct nodo* inicio;
 	struct nodo* final;
+	int size;
     }
 
-    //instanciamos un nuevo cabezal
-    struct lista;
-    cabezal.inicio = new steuct lista;
-    cabezal.final = new;
+    //instanciamos una nueva lista
+    struct lista buffer;
+    buffer.inicio = new struct nodo;
+    buffer.final = lista.inicio;
+    buffer.size = 0;
     
-    //leemos los caracteres
+    //leemos el primer caracter
     char c;
+    c = getchar();
+    buffer.inicio.c = c;
+    buffer.size = 1;
+
+    //loopeamos hasta encontrar un salto de linea
     while ((c = getchar()) != '\n'){
-	lista.final.sig = new struct nodo;
-	lista.final = lista.final.sig;
-	lista.final.c = c;
-	list.final.sig = NULL;
+	buffer.final.sig = new struct nodo;
+	buffer.final = lista.final.sig;
+	buffer.final.c = c;
+	buffer.final.sig = NULL;
+	buffer.final.size++;
     }
 
     //volcamos los caracteres leidos en u string
-    struct nodo pointer = lista.inicio;
-    char string[lista.size];
-    for(struct nodo* i; i != NULL; i = i.sig){
-	string[i.pos] = i.c;
+    int pos = 0;
+    char string[buffer.size + 1];
+    for(struct nodo* i = buffer.inicio; i != NULL; i = i.sig){
+	string[pos] = i.c;
+	pos++;
     }
+    string[pos] = '\0';
 
     //liberamos la lista
+
+    //retornamos el string
+    return string;
 }
