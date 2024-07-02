@@ -13,30 +13,30 @@ const char* readString() {
 
     //instanciamos una nueva lista
     struct lista buffer;
-    buffer.inicio = new struct nodo;
+    buffer.inicio = (struct nodo*)malloc(sizeof(struct nodo));
     buffer.final = lista.inicio;
     buffer.size = 0;
     
     //leemos el primer caracter
     char c;
     c = getchar();
-    buffer.inicio.c = c;
+    buffer.inicio->c = c;
     buffer.size = 1;
 
     //loopeamos hasta encontrar un salto de linea
     while ((c = getchar()) != '\n'){
-	buffer.final.sig = new struct nodo;
-	buffer.final = lista.final.sig;
-	buffer.final.c = c;
-	buffer.final.sig = NULL;
-	buffer.final.size++;
+	buffer.final.sig = (struct nodo*)malloc(sizeof(struct nodo));
+	buffer.final = lista.final->sig;
+	buffer.final->c = c;
+	buffer.final->sig = NULL;
+	buffer.size++;
     }
 
     //volcamos los caracteres leidos en u string
     int pos = 0;
     char string[buffer.size + 1];
-    for(struct nodo* i = buffer.inicio; i != NULL; i = i.sig){
-	string[pos] = i.c;
+    for(struct nodo* i = buffer.inicio; i != NULL; i = i->sig){
+	string[pos] = i->c;
 	pos++;
     }
     string[pos] = '\0';

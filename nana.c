@@ -5,6 +5,7 @@ int main() {
     printf("Bienvenida a mi computadora.\n");
     printf("Escribe cualquier cosa y luego presiona 'enter'.\n");
     printf("Lo que escribas sera guardado en una carpeta especial y leido por mi >:)\n\n");
+	const char* name = readString();
 
     //creamos un nuevo archivo en la carpeta de mensajitos
     //podemos crear un archivito que nos diga el número del mensaje más alto
