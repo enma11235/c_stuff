@@ -3,6 +3,8 @@
 
 int main() {
 
+    //estudiar los enumerados y fijarse que se implementan como int.
+
     //Las variables de tipo int ocupan 4 bytes en memoria.
     //Las direcciones de memoria (pointers) ocupan 8 bytes.
     //El operador & devuelve la direccion de memoria de una variable.
@@ -102,5 +104,5 @@ int main() {
     printf("int E[] = {1, 2, 3}\n");
     printf("sizeof(E) = %ld\n", sizeof(E));
     
-
+    //tenemos que estudiar la memoria de los struct
 }
