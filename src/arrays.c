@@ -105,4 +105,9 @@ int main() {
     printf("sizeof(E) = %ld\n", sizeof(E));
     
     //tenemos que estudiar la memoria de los struct
+    
+    //llenar bloques de memoria
+    //creamos un bloque de memoria de 5 bytes
+    char a[5];
+    memset(a, 0, 5);
 }
