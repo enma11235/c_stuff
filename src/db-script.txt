@@ -1,0 +1,20 @@
+CREATE TABLE materias (
+    id INT AUTO INCREMENT PRIMARY KEY,
+    nombre VARCHAR(200),
+    anio INT,
+    semestre INT,
+);
+
+CREATE TABLE parciales (
+    id INT AUTO INCREMENT PRIMARY KEY,
+    num INT,
+    puntajeMax INT,
+    FOREIGN KEY (materia)
+    REFERENCES materias (id),
+);
+
+CREATE TABLE notasParciales (
+    nota INT,
+    FOREIGN KEY (parcial)
+    REFERENCES parciales (id),
+);
