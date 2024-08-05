@@ -110,4 +110,7 @@ int main() {
     //creamos un bloque de memoria de 5 bytes
     char a[5];
     memset(a, 0, 5);
+
+    //struct addrinfo
+
 }
